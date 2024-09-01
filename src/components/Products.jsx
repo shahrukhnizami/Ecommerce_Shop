@@ -42,11 +42,10 @@ function Products(){
         </div>
       </div>
     </div>
-    <div className="row">
-      <div className="col">
+    <div className="row align-items-center">
+      <div className="col text-center">
         <div
           className="product-grid"
-          data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'
         >
           {/* Product 1 */}
           <div className="product-item men">
