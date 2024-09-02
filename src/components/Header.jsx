@@ -1,6 +1,10 @@
-import Slider from "./Slider";
+import {  useState } from 'react'
+import { Link } from 'react-router-dom';
+import ContactUs from '../pages/ContactUs';
+
 
 function Header(){
+	const[cartitem , setCartItem]= useState([])
     return(
         <>
         <header className="header trans_300">
@@ -49,8 +53,8 @@ function Header(){
 										<i className="fa fa-angle-down"></i>
 									</a>
 									<ul className="account_selection">
-										<li><a href="#"><i className="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-										<li><a href="#"><i className="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+										<li><Link to={"signin"}><i className="fa fa-sign-in" aria-hidden="true"></i>Sign In</Link></li>
+										<li><Link to={"register"}><i className="fa fa-user-plus" aria-hidden="true"></i>Register</Link></li>
 									</ul>
 								</li>
 							</ul>
@@ -71,12 +75,12 @@ function Header(){
 						</div>
 						<nav className="navbar">
 							<ul className="navbar_menu">
-								<li><a href="#">home</a></li>
+								<li><Link to={"/"}>home</Link></li>
 								<li><a href="#">shop</a></li>
 								<li><a href="#">promotion</a></li>
 								<li><a href="#">pages</a></li>
 								<li><a href="#">blog</a></li>
-								<li><a href="contact.html">contact</a></li>
+								<li><Link to={"contactus"}>contact</Link></li>
 							</ul>
 							<ul className="navbar_user">
 								<li><a href="#"><i className="fa fa-search" aria-hidden="true"></i></a></li>
@@ -84,7 +88,7 @@ function Header(){
 								<li className="checkout">
 									<a href="#">
 										<i className="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" className="checkout_items">2</span>
+										<span id="checkout_items" className="checkout_items">{cartitem.length}</span>
 									</a>
 								</li>
 							</ul>
