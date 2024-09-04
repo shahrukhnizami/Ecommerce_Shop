@@ -71,7 +71,7 @@ function Header(){
 				<div className="row">
 					<div className="col-lg-12 text-right">
 						<div className="logo_container">
-							<a href="#">colo<span>shop</span></a>
+							<Link to="/">colo<span>shop</span></Link>
 						</div>
 						<nav className="navbar">
 							<ul className="navbar_menu">

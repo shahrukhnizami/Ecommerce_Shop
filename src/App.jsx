@@ -38,6 +38,8 @@ function App() {
 		<Route path=':id' element ={<ProductDetail/>}  ></Route>
 
 		</Route>
+
+		{/* <Route path='*' element={<h1>Page Not Found</h1>}/> */}
 	
 	</Routes>
 	<Footer/>

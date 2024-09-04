@@ -12,9 +12,9 @@ function Card({item}){
                 <img src={image} alt="" />
               </div>
               <div className="favorite favorite_left" />
-              <div className="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+              {/* <div className="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
                 <span>-${price}</span>
-              </div>
+              </div> */}
               <div className="product_info">
                 <span className="text-capitalize">{category}</span>
                 <h6 className="product_name">

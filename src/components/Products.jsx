@@ -1,12 +1,16 @@
+import { getAllProducts } from "../utils/products";
 import Card from "./Cards"
 import { useEffect, useState } from 'react'
 
-import { getAllProducts } from '../utils/products'
-
 function Products() {
+
+
+
+
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState([]);
-
+  
+  
 
 
   useEffect(() => { fetchproducts() }, [])
@@ -17,6 +21,9 @@ function Products() {
     console.log("All",product);
 
   }
+
+ 
+ 
  
  
  
@@ -25,20 +32,47 @@ function Products() {
   const  categorySerch=(e)=>{
     setSearch(e.target.id);
   }
+  
   // const filteredArr = products.filter((data) => data.title);
+
+
+
+  // const categoryArr = products.filter((data) => {
+  //   if (data.category == search){
+  //     return(data.category === search)
+      
+  //   }
+  // //  else if (data.category == search){
+  // //     return(data !==-1)
+  // //   }
+  // } )
   
-  const categoryArr = products.filter((data)=>data.category.indexOf(search)    !==-1);
-  console.log("filteredArr>",categoryArr);
+   
+  
+  
+  
+    // if (data.category === "all") {
+    //   return prods;}})
     
-  // const allproducts=()=>{
-  //   const categoryArr = products.filter((data)=>data !==-1)
-  //   console.log("AllArr>",categoryArr);}
-  // const filteredArr = products.filter((data) => data.category.indexOf(search.toLowerCase()) !== -1 );
+     
+  //   // } else if (categorySelected.electronics) {
+  //   //   return prods.category === Category.Electronics;
+  //   // }
+  //   // else if (categorySelected.jewelery) {
+  //   //   return prods.category === Category.Jewelery;
+  //   // }
+  // })
+  // console.log("categorymulti=>",categorymulti);
+  
+  const categoryArr = products.filter((data)=>data.category == search    !==-1);
+  // console.log("filteredArr>",categoryArr);
+ 
+
   
   
 
 
-  console.log(search);
+
   return (
     <>
       <div className="new_arrivals">
@@ -56,32 +90,32 @@ function Products() {
                 <ul className="arrivals_grid_sorting clearfix button-group filters-button-group">
                   <li
                     className="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked"
-                    data-filter="*" id="category" onClick={categorySerch}
+                    id="category" onClick={(categorySerch)}
                   >
                     All
                   </li>
                   <li
                     className="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
-                    data-filter=".women" id="women" onClick={categorySerch}
+                    id="women's clothing" onClick={categorySerch}
                   >
                     women's
                   </li>
                  
                   <li
                     className="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
-                    data-filter=".men"  id="men's clothing" onClick={categorySerch}
+                      id="men's clothing" onClick={categorySerch}
                   >
                     men's
                   </li>
                   <li
                     className="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
-                    data-filter=".accessories" id="electronics" onClick={categorySerch}
+                    id="electronics" onClick={categorySerch}
                   >
                     Electronics
                   </li>
                   <li
                     className="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
-                    data-filter=".men"  id="jewelery" onClick={categorySerch}
+                     id="jewelery" onClick={categorySerch}
                   >
                    jewelery
                   </li>

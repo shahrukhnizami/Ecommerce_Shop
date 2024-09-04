@@ -3,6 +3,7 @@ import Tab from "../../components/Tab";
 import Products from "../../components/Products";
 import { getAllProducts } from "../../utils/products";
 import {useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function ProductDetail(){
     const {id} = useParams()
@@ -26,18 +27,18 @@ function ProductDetail(){
       <div className="breadcrumbs d-flex flex-row align-items-center">
         <ul>
           <li>
-            <a href="index.html">Home</a>
+            <Link to={"/"} >Home</Link>
           </li>
           <li>
             <a href="categories.html">
               <i className="fa fa-angle-right" aria-hidden="true" />
-              Men's
+              {product.category}
             </a>
           </li>
           <li className="active">
             <a href="#">
               <i className="fa fa-angle-right" aria-hidden="true" />
-              Single Product
+              {product.title}
             </a>
           </li>
         </ul>
