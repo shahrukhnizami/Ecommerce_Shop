@@ -64,7 +64,9 @@ function Signin() {
         </div>
       </div>
       {/* Contact Us */}
-      <div className="row">
+      <div className="container d-flex flex-wrap">
+        {/* justify-content-right align-items-row */}
+      <div className="row ">
         <div className="col-lg-6 get_in_touch_col">
           <div className="get_in_touch_contents">
             <h1>Sign In Your Acount</h1>
@@ -98,6 +100,7 @@ function Signin() {
               </div>
               <div>
                 <button
+                style={{width:"20%"}}
                   id="review_submit"
                   type="submit"
                   className="red_button message_submit_btn trans_300"
@@ -106,6 +109,7 @@ function Signin() {
                   Sign In
                 </button>
                 <button
+                style={{width:"20%"}}
                   id="register_btn"
                   type="submit"
                   className="mx-2 red_button message_submit_btn trans_300"
@@ -114,6 +118,7 @@ function Signin() {
                   With Google
                 </button>
                 <button
+                style={{width:"20%"}}
                   id="register_btn"
                   className="mx-2 red_button message_submit_btn "
                 >
@@ -126,6 +131,8 @@ function Signin() {
           </div>
         </div>
       </div>
+      </div>
+      
     </div>
 
 

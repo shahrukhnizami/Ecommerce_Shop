@@ -78,7 +78,7 @@ function Products() {
             <div className="new_arrivals_sorting">
               <ul className="arrivals_grid_sorting clearfix button-group filters-button-group">
 
-              <CategoriesSlug  ischossen ={ chossenCategory == "All"} category={{name:"All", slug:"all"}}/>
+              <CategoriesSlug onClick={()=>setchossenCategory("All")}  ischossen ={ chossenCategory == "All"} category={{name:"All", slug:"all"}}/>
 
 
                 {categories.map((category)=>( <CategoriesSlug onClick={()=>setchossenCategory(category.slug)}  ischossen={category.slug ==  chossenCategory }  category={category}/>))}
