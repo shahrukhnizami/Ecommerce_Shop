@@ -76,7 +76,7 @@ function Header(){
 						<nav className="navbar">
 							<ul className="navbar_menu">
 								<li><Link to={"/"}>home</Link></li>
-								<li><a href="#">shop</a></li>
+								<li><Link to={"products"} >All Products</Link></li>
 								<li><a href="#">promotion</a></li>
 								<li><a href="#">pages</a></li>
 								<li><a href="#">blog</a></li>

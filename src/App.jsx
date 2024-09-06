@@ -16,6 +16,7 @@ import Register from './pages/Auth/Register';
 import Signin from './pages/Auth/SignIn';
 import Products from './components/Products';
 import ProductDetail from './pages/Products/ProductDetail';
+import Category from './pages/Category';
 
 
 function App() {
@@ -31,13 +32,17 @@ function App() {
 		<Route path='/contactus' element={<ContactUs/>}/>
 		<Route path='/register' element={<Register/>}/>
 		<Route path='/signin' element={<Signin/>}/>
+		<Route path='/category' element={<Category/>}/>
 
 
 		<Route path='/products'>
 		<Route index element ={<Products/>}  ></Route>
-		<Route path=':id' element ={<ProductDetail/>}  ></Route>
-
 		</Route>
+		<Route path='/product'>
+		<Route path=':id' element ={<ProductDetail/>}  ></Route>
+			
+		</Route>
+
 
 		{/* <Route path='*' element={<h1>Page Not Found</h1>}/> */}
 	

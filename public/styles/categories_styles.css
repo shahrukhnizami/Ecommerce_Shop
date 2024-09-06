@@ -1339,7 +1339,8 @@ section
 {
 	width: 100%;
 }
-.product_image img
+
+.img_c
 {
 	width: 100%;
 }
@@ -1443,7 +1444,7 @@ section
 }
 .add_to_cart_button
 {
-	width: 100%;
+	width: 80%;
 	visibility: hidden;
 	opacity: 0;
 	-webkit-transition: all 0.3s ease;
