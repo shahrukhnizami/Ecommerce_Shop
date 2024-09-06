@@ -35,14 +35,11 @@ function App() {
 		<Route path='/category' element={<Category/>}/>
 
 
-		<Route path='/products'>
-		<Route index element ={<Products/>}  ></Route>
-		</Route>
-		<Route path='/product'>
+		
+		<Route path='products' element ={<Products/>}  ></Route>
 		<Route path=':id' element ={<ProductDetail/>}  ></Route>
-			
-		</Route>
 
+	
 
 		{/* <Route path='*' element={<h1>Page Not Found</h1>}/> */}
 	

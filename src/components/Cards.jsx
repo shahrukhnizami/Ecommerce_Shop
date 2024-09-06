@@ -229,7 +229,7 @@ function Card({item}){
         //   </div>
         
         <div className="product-item men">
-          <Link to={`product/${id}`}>
+          <Link to={`/${id}`}>
         <div className="product discount product_filter">
           
           <div className="product_image">
