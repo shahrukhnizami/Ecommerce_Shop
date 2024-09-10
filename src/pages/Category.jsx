@@ -55,9 +55,10 @@ function Category (){
                 </div>
                 <p>
                   <input
-                    type="text"
+                    type="range"
                     id="amount"
                     readOnly=""
+                    min="0" max="100" step="10"
                     style={{ border: 0, color: "#f6931f", fontWeight: "bold" }}
                   />
                 </p>
@@ -258,7 +259,7 @@ function Category (){
                         </div>
                       </div>
                       {/* Product 2 */}
-                      <div className="product-item women">
+                      {/* <div className="product-item women">
                         <div className="product product_filter">
                           <div className="product_image">
                             <img src="images/product_2.png" alt="" />
@@ -279,9 +280,9 @@ function Category (){
                         <div className="red_button add_to_cart_button">
                           <a href="#">add to cart</a>
                         </div>
-                      </div>
+                      </div> */}
                       {/* Product 3 */}
-                      <div className="product-item women">
+                      {/* <div className="product-item women">
                         <div className="product product_filter">
                           <div className="product_image">
                             <img src="images/product_3.png" alt="" />
@@ -299,9 +300,9 @@ function Category (){
                         <div className="red_button add_to_cart_button">
                           <a href="#">add to cart</a>
                         </div>
-                      </div>
+                      </div> */}
                       {/* Product 4 */}
-                      <div className="product-item accessories">
+                      {/* <div className="product-item accessories">
                         <div className="product product_filter">
                           <div className="product_image">
                             <img src="images/product_4.png" alt="" />
@@ -322,9 +323,9 @@ function Category (){
                         <div className="red_button add_to_cart_button">
                           <a href="#">add to cart</a>
                         </div>
-                      </div>
+                      </div> */}
                       {/* Product 5 */}
-                      <div className="product-item women men">
+                      {/* <div className="product-item women men">
                         <div className="product product_filter">
                           <div className="product_image">
                             <img src="images/product_5.png" alt="" />
@@ -342,9 +343,9 @@ function Category (){
                         <div className="red_button add_to_cart_button">
                           <a href="#">add to cart</a>
                         </div>
-                      </div>
+                      </div> */}
                       {/* Product 6 */}
-                      <div className="product-item accessories">
+                      {/* <div className="product-item accessories">
                         <div className="product discount product_filter">
                           <div className="product_image">
                             <img src="images/product_6.png" alt="" />
@@ -367,9 +368,9 @@ function Category (){
                         <div className="red_button add_to_cart_button">
                           <a href="#">add to cart</a>
                         </div>
-                      </div>
+                      </div> */}
                       {/* Product 7 */}
-                      <div className="product-item women">
+                      {/* <div className="product-item women">
                         <div className="product product_filter">
                           <div className="product_image">
                             <img src="images/product_7.png" alt="" />
@@ -387,9 +388,9 @@ function Category (){
                         <div className="red_button add_to_cart_button">
                           <a href="#">add to cart</a>
                         </div>
-                      </div>
+                      </div> */}
                       {/* Product 8 */}
-                      <div className="product-item accessories">
+                      {/* <div className="product-item accessories">
                         <div className="product product_filter">
                           <div className="product_image">
                             <img src="images/product_8.png" alt="" />
@@ -407,9 +408,9 @@ function Category (){
                         <div className="red_button add_to_cart_button">
                           <a href="#">add to cart</a>
                         </div>
-                      </div>
+                      </div> */}
                       {/* Product 9 */}
-                      <div className="product-item men">
+                      {/* <div className="product-item men">
                         <div className="product product_filter">
                           <div className="product_image">
                             <img src="images/product_9.png" alt="" />
@@ -430,7 +431,7 @@ function Category (){
                         <div className="red_button add_to_cart_button">
                           <a href="#">add to cart</a>
                         </div>
-                      </div>
+                      </div> */}
                       {/* Product 10 */}
                       <div className="product-item men">
                         <div className="product product_filter">
@@ -452,7 +453,7 @@ function Category (){
                         </div>
                       </div>
                       {/* Product 11 */}
-                      <div className="product-item women men">
+                      {/* <div className="product-item women men">
                         <div className="product product_filter">
                           <div className="product_image">
                             <img src="images/product_5.png" alt="" />
@@ -470,9 +471,9 @@ function Category (){
                         <div className="red_button add_to_cart_button">
                           <a href="#">add to cart</a>
                         </div>
-                      </div>
+                      </div> */}
                       {/* Product 12 */}
-                      <div className="product-item accessories">
+                      {/* <div className="product-item accessories">
                         <div className="product discount product_filter">
                           <div className="product_image">
                             <img src="images/product_6.png" alt="" />
@@ -495,7 +496,7 @@ function Category (){
                         <div className="red_button add_to_cart_button">
                           <a href="#">add to cart</a>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                     {/* Product Sorting */}
                     <div className="product_sorting_container product_sorting_container_bottom clearfix">

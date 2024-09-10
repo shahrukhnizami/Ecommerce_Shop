@@ -60,8 +60,8 @@ function Products() {
   return (
     <>
     <div className="container d-flex justify-content-center py-2">
-     {loading?(<div class="spinner-border text-danger " role="status">
-  <span class="sr-only">Loading...</span>
+     {loading?(<div className="spinner-border text-danger " role="status">
+  <span className="sr-only">Loading...</span>
 </div>)
      :
      (<div className="new_arrivals">
@@ -70,6 +70,8 @@ function Products() {
           <div className="col text-center">
             <div className="section_title new_arrivals_title">
               <h2>New Arrivals</h2>
+              {/* <!-- Button trigger modal --> */}
+
             </div>
           </div>
         </div>

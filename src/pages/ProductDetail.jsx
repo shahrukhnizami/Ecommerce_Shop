@@ -1,7 +1,4 @@
 import { useParams } from "react-router";
-import Tab from "../../components/Tab";
-import Products from "../../components/Products";
-import { getAllProducts } from "../../utils/products";
 import {useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";

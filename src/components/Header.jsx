@@ -1,10 +1,55 @@
-import {  useState } from 'react'
+import {  useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
-import ContactUs from '../pages/ContactUs';
+import { AuthContext } from '../Context/AuthContext';
+import { signOut } from 'firebase/auth';
+import { auth } from '../pages/firebase/fire';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router";
 
 
 function Header(){
-	const[cartitem , setCartItem]= useState([])
+	const[cartitem , setCartItem]= useState([0])
+	const [username,setusername] = useState("")
+	const [email,setuseremail] = useState("")
+	const [password,setpassword] = useState("")
+	const navigate = useNavigate();
+	
+	
+	const [loading, setloading] = useState(false);
+
+	const handleSubmit=()=>{
+		console.log(username);
+		console.log(email);
+		console.log(password);
+		setloading(true);
+		setmessage(false)
+	
+		createUserWithEmailAndPassword(auth, email, password)
+		.then(  setmessage(true),
+		setloading(false),
+		  navigate("/signin"),
+				
+		  
+		  
+		)
+		  .catch((err) => {
+			console.log(err);
+			setloading(false);
+		  });
+	   
+		
+	
+	   }
+	
+
+	const {user,setUser} = useContext(AuthContext)
+	// console.log("User",user);
+	 const logoutUser = async()=>{
+		console.log("click Log out");
+		
+		await signOut(auth);
+	}
+
     return(
         <>
         <header className="header trans_300">
@@ -18,6 +63,8 @@ function Header(){
 						<div className="top_nav_left">free shipping on all u.s orders over $50</div>
 					</div>
 					<div className="col-md-6 text-right">
+					
+
 						<div className="top_nav_right">
 							<ul className="top_nav_menu">
 
@@ -35,28 +82,71 @@ function Header(){
 										<li><a href="#">gbp</a></li>
 									</ul>
 								</li>
-								<li className="language">
+								<li className=" language">
 									<a href="#">
-										English
+										Theme Dark
 										<i className="fa fa-angle-down"></i>
 									</a>
-									<ul className="language_selection">
-										<li><a href="#">French</a></li>
-										<li><a href="#">Italian</a></li>
-										<li><a href="#">German</a></li>
-										<li><a href="#">Spanish</a></li>
-									</ul>
+									
 								</li>
+
+								
 								<li className="account">
-									<a href="#">
-										My Account
-										<i className="fa fa-angle-down"></i>
+									
+									{
+									 user ?.islogin ? (<>
+									
+									 <a className='px-3' href="#">{user?.userinfo?.email}
+										<i className=" fa fa-angle-down"></i>
+									 	<img width={"30px"} className="mx-2 avatar rounded-4  avatar-lg" src={user?.userinfo?.photo} />
+									</a>									
+									<ul className="account_selection">
+									<li onClick={logoutUser}><Link to={"./"}><i className="fa fa-user-plus"   aria-hidden="true"></i>Logout</Link></li>
+									</ul></>
+									):
+									(<>
+
+									<a href="#">My Acount<i className="fa fa-angle-down"></i>
 									</a>
 									<ul className="account_selection">
 										<li><Link to={"signin"}><i className="fa fa-sign-in" aria-hidden="true"></i>Sign In</Link></li>
 										<li><Link to={"register"}><i className="fa fa-user-plus" aria-hidden="true"></i>Register</Link></li>
+										<li><Link to={"signup"}><i className="fa fa-user-plus" aria-hidden="true"></i>SignUp</Link></li>
+										<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+{/* <!-- Modal --> */}
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+																				
 									</ul>
+
+
+									
+									</>)
+									}
+										
+									
 								</li>
+								
 							</ul>
 						</div>
 					</div>
@@ -96,6 +186,7 @@ function Header(){
 								<i className="fa fa-bars" aria-hidden="true"></i>
 							</div>
 						</nav>
+						
 					</div>
 				</div>
 			</div>

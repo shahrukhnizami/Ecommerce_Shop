@@ -3,8 +3,9 @@ import {  useState } from "react"
 import { auth } from "../firebase/fire";
 import { useNavigate } from "react-router";
 
+function SignUp(){
 
-function Register(){
+
 
   const [username,setusername] = useState("")
   const [email,setuseremail] = useState("")
@@ -13,8 +14,6 @@ function Register(){
   
   const [loading, setloading] = useState(false);
   const [message, setmessage] = useState(false);
-
-
   const handleSubmit=()=>{
     console.log(username);
     console.log(email);
@@ -25,7 +24,7 @@ function Register(){
     createUserWithEmailAndPassword(auth, email, password)
     .then(  setmessage(true),
     setloading(false),
-      navigate("/"),
+      navigate("/signin"),
             
       
       
@@ -39,53 +38,28 @@ function Register(){
 
    }
     
-  
-  
+
     return(
-        <div className="container contact_container">
-  <div className="row">
-    <div className="col">
-      {/* Breadcrumbs */}
-      <div className="breadcrumbs d-flex flex-row align-items-center">
-        <ul>
-          <li>
-            <a href="../index.html">Home</a>
-          </li>
-          <li className="active">
-            <a href="#">
-              <i className="fa fa-angle-right" aria-hidden="true" />
-              Register
-            </a>
-          </li>
-        </ul>
+    
+        <>
+        {/* <!-- Button trigger modal --> */}
+        <button id="newsletter_submit" type="submit" data-target="#exampleModalCenter" data-toggle="modal" class="newsletter_submit_btn trans_300" value="Submit">Sign Up</button>
+
+{/* <!-- Modal --> */}
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Register Your Acount</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </div>
-  </div>
-  {/* Contact Us */}
-  <div className="d-flex justify-content-center row ">
-    <div className=" col-lg-8 get_in_touch_col">
-      <div className=" get_in_touch_contents">
-        <h1>Register Your Acount</h1>
-        <p>Fill out the form below to recieve a free and confidential.</p>
-        {message?(<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>):(<div></div>)}
-        
-          <div>
-            {/* <label> Profile Image</label>{" "}
-            <input
-              id="register_img"
-              className="form-control "
-              type="file"
-              required="required"
-            /> */}
-            <input 
+      <div class="modal-body">
+      <input 
             value={username}
             onChange={(e)=>{setusername(e.target.value)}}
-              id="register_name"
+              
               className="form_input input_name input_ph"
               type="text"
               name="name"
@@ -104,7 +78,7 @@ function Register(){
               required="required"
               data-error="Valid email is required."
             />
-            <input
+             <input
             value={password}
             onChange={(e)=>{setpassword(e.target.value)}}
               id="register_password"
@@ -115,40 +89,27 @@ function Register(){
               required="required"
               data-error="password is required."
             />
-            {/* <input
-              id="register_confrm_password"
-              className="form_input input_website input_ph"
-              type="password"
-              name="password"
-              placeholder="Confrm Password"
-              required="required"
-              data-error="password is required."
-            /> */}
-            {/* <textarea id="input_message" class="input_ph input_message" name="message"  placeholder="Message" rows="3" required data-error="Please, write us a message."></textarea> */}
-          </div>
-          <div>
-            {loading?(<div className="container d-flex justify-content-center py-2">
+              {loading?(<div className="container d-flex justify-content-center py-2">
                 <div className="spinner-border text-danger " role="status">
                     <span className="sr-only">Loading...</span>
                 </div>
-            </div>):(<button
+            </div>):(<button data-dismiss="modal"
               id="register_btn"
               type="submit "
-              style={{    width: "-webkit-fill-available"}}
               className=" py-3 red_button message_submit_btn trans_300"
               onClick={handleSubmit}
             >
-              Submit
+              SignUp
             </button>)}
-            
-            
-          </div>
-       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
 
+        </>
     )
 }
-export default Register
+export default SignUp;

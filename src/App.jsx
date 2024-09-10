@@ -15,8 +15,9 @@ import ContactUs from './pages/ContactUs'
 import Register from './pages/Auth/Register';
 import Signin from './pages/Auth/SignIn';
 import Products from './components/Products';
-import ProductDetail from './pages/Products/ProductDetail';
+import ProductDetail from './pages/ProductDetail';
 import Category from './pages/Category';
+import SignUp from './pages/Auth/SignUp';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
 	
 
   return (
+
 	<BrowserRouter>
 	<Header/>
 	<Routes>
@@ -33,6 +35,7 @@ function App() {
 		<Route path='/register' element={<Register/>}/>
 		<Route path='/signin' element={<Signin/>}/>
 		<Route path='/category' element={<Category/>}/>
+		<Route path='/signup' element={<SignUp/>}/>
 
 
 		
