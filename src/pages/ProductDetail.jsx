@@ -1,15 +1,56 @@
 import { useParams } from "react-router";
-import {useEffect, useState } from "react";
+import {useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Button,Flex  } from "antd";
+
+import { CartContext } from "../Context/CartContext";
+import Item from "antd/es/list/Item";
 
 function ProductDetail(){
+  const { cartItem, addItemTOCart,isItemAdded } = useContext(CartContext);
+  // console.log("CartItem",cartItem);
+ 
+  
+  
+  
+  const [abc, setAbc] = useState("");
+
+  
+
+
+  // const deleteItemFromStorage = (id) => {
+  //   deleteItemInLocalStorage(id);
+  //   setAbc(abc + "1");
+  // };
+
+  // const totalPrice = products.reduce(
+  //   (total, products) => total + products.quantity * products.price,
+  //   0
+  // );
+
+  // const totalQuantity = products.reduce(
+  //   (total, products) => total + products.quantity,
+  //   0
+  // );
+
     const {id} = useParams()
-    console.log("Title" ,id);
     const[product,setProduct] = useState("")
+    // console.log("Product",product);
+    
     const[loading,setloading] = useState(true)
     const[notFound,setnotFound] = useState(false)
 
+    // function add() {
+    //   quantity = quantity + 1;
+    //   setQuantity(quantity);
+    // }
+    // function minus() {
+    //   if (quantity > 1) {
+    //     setQuantity(quantity - 1);}
+        
+    // }
+    
     useEffect(() => {
       setnotFound(false)
         axios.get(`https://dummyjson.com/products/${id}`)
@@ -22,12 +63,16 @@ function ProductDetail(){
           } );
       }, []);
 
-  
+      
+      
+   
+      
+     
     
     return(
         <>
-        {loading?(<div class="spinner-border text-danger " role="status">
-  <span class="sr-only">Loading...</span>
+        {loading?(<div className="spinner-border text-danger " role="status">
+  <span className="sr-only">Loading...</span>
 </div>):
         notFound?
         (<div  className="container single_product_container"><h1>Opps</h1>
@@ -137,20 +182,26 @@ function ProductDetail(){
                 </ul>
               </div>
               <div className="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+              <Flex wrap gap="small">
                 <span>Quantity:</span>
                 <div className="quantity_selector">
                   <span className="minus">
                     <i className="fa fa-minus" aria-hidden="true" />
                   </span>
                   <span id="quantity_value">1</span>
-                  <span className="plus">
+                  <span  className="plus">
                     <i className="fa fa-plus" aria-hidden="true" />
                   </span>
                 </div>
-                <div className="red_button add_to_cart_button">
+                <Button onClick={()=>addItemTOCart(product)} type="primary" danger  >
+                {isItemAdded(product.id)
+                  ? `Added (${isItemAdded(product.id).quantity})`
+                  : `Add to Cart`}</Button>
+                {/* <div style={{color:"red"}} className="red_button add_to_cart_button">
                   <a href="#">add to cart</a>
-                </div>
+                </div> */}
                 <div className="product_favorite d-flex flex-column align-items-center justify-content-center" />
+                </Flex>
               </div>
             </div>
           </div>

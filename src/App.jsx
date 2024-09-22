@@ -18,6 +18,7 @@ import Products from './components/Products';
 import ProductDetail from './pages/ProductDetail';
 import Category from './pages/Category';
 import SignUp from './pages/Auth/SignUp';
+import Cart from './components/Cart';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
 		<Route path='/signin' element={<Signin/>}/>
 		<Route path='/category' element={<Category/>}/>
 		<Route path='/signup' element={<SignUp/>}/>
+		<Route path='/cart' element={<Cart/>}/>
 
 
 		

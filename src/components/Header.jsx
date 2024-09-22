@@ -1,45 +1,19 @@
-import {  useContext, useState } from 'react'
+import {  useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import { signOut } from 'firebase/auth';
 import { auth } from '../pages/firebase/fire';
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router";
+import { CartContext } from '../Context/CartContext';
 
 
 function Header(){
-	const[cartitem , setCartItem]= useState([0])
-	const [username,setusername] = useState("")
-	const [email,setuseremail] = useState("")
-	const [password,setpassword] = useState("")
-	const navigate = useNavigate();
-	
-	
-	const [loading, setloading] = useState(false);
+	const { cartitem	} = useContext(CartContext);
 
-	const handleSubmit=()=>{
-		console.log(username);
-		console.log(email);
-		console.log(password);
-		setloading(true);
-		setmessage(false)
+
 	
-		createUserWithEmailAndPassword(auth, email, password)
-		.then(  setmessage(true),
-		setloading(false),
-		  navigate("/signin"),
-				
-		  
-		  
-		)
-		  .catch((err) => {
-			console.log(err);
-			setloading(false);
-		  });
-	   
-		
 	
-	   }
+
+	
 	
 
 	const {user,setUser} = useContext(AuthContext)
@@ -155,10 +129,10 @@ function Header(){
 								<li><a href="#"><i className="fa fa-search" aria-hidden="true"></i></a></li>
 								<li><a href="#"><i className="fa fa-user" aria-hidden="true"></i></a></li>
 								<li className="checkout">
-									<a href="#">
+									<Link to={"cart"}>
 										<i className="fa fa-shopping-cart" aria-hidden="true"></i>
 										<span id="checkout_items" className="checkout_items">{cartitem.length}</span>
-									</a>
+									</Link>
 								</li>
 							</ul>
 							<div className="hamburger_container">

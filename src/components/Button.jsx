@@ -2,7 +2,7 @@ import { Button } from 'react-bootstrap';
 
 
 function Button() {
-    return(<button >Happy</button>)
+    return(<button className='bg-danger' >Happy</button>)
     
     
 }

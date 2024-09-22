@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../Context/CartContext";
+import { Button } from "antd";
+
 
 function Card({item}){
   // console.log(item);
   
     const{category,description, thumbnail ,price,id,title} = item
+    const {  addItemTOCart,isItemAdded } = useContext(CartContext);
+    
     
     return(
         
@@ -250,10 +255,19 @@ function Card({item}){
             </div>
           </div>
         </div>
-        <div  className="ml-4 d-flex justify-content-center  red_button add_to_cart_button">
-          <a href="#">add to cart</a>
-        </div>
         </Link>
+        <Button type="primary" danger onClick={() => addItemTOCart(item)}>
+                {isItemAdded(item.id)
+                  ? `Added (${isItemAdded(item.id).quantity})`
+                  : `Add to Cart`}
+              </Button>
+        {/* <div  className="ml-4 d-flex justify-content-center  red_button add_to_cart_button">
+          <a  onClick={()=>addItemTOCart(item)} >{isItemAdded(item.id)
+                  ? `Added (${isItemAdded(item.id).quantity})`
+                  : `Add to Cart`}</a>
+         
+        </div> */}
+        
       </div>
       
     )
