@@ -8,7 +8,7 @@ function Card({item}){
   // console.log(item);
   
     const{category,description, thumbnail ,price,id,title} = item
-    const {  addItemTOCart,isItemAdded } = useContext(CartContext);
+    const {  addItemTOCart,isItemAdded,quantity } = useContext(CartContext);
     
     
     return(

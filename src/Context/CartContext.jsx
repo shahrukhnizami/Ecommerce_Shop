@@ -44,7 +44,6 @@ function CartContextProvider({ children }) {
       
     }
     setCartitem([...arr]);
-    
   }
   function lessQuantitfromcart(id) {
     const arr = cartitem;
@@ -81,7 +80,7 @@ function CartContextProvider({ children }) {
     }
 
   return (
-    <CartContext.Provider value={{ cartitem, setCartitem ,addItemTOCart,isItemAdded ,removeItemFromCart,lessQuantitfromcart}}>
+    <CartContext.Provider value={{ cartitem,  setCartitem ,addItemTOCart,isItemAdded ,removeItemFromCart,lessQuantitfromcart}}>
       {children}
     </CartContext.Provider>
   );

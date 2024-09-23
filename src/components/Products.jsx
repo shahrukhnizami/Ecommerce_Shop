@@ -1,7 +1,8 @@
 import axios from "axios";
 import Card from "./Cards"
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import CategoriesSlug from "./CetegoriesSlug";
+import { CartContext } from "../Context/CartContext";
 
 function Products() {
 
